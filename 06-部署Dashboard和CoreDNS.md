@@ -16,8 +16,15 @@ coredns-f9cdf5b99-44hhc       1/1     Running   0          33s
 kube-flannel-ds-amd64-hkhfw   1/1     Running   1          12m
 ```
 ```
-~]# kubectl  run app --image=ikubernetes/myapp:v1
-~]# kubectl  run -it busybox --image=busybox  /bin/sh
+kubectl run -it --rm dns-test --image=busybox:1.28.4 sh
+If you don't see a command prompt, try pressing enter.
+
+/ # nslookup kubernetes
+Server:    10.0.0.2
+Address 1: 10.0.0.2 kube-dns.kube-system.svc.cluster.local
+
+Name:      kubernetes
+Address 1: 10.0.0.1 kubernetes.default.svc.cluster.local
 ```
 #### 部署 DashBoard
 
