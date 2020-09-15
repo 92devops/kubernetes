@@ -4,11 +4,9 @@
 ```
 ~]# git clone https://github.com/coredns/deployment.git
 ~]# cd deployment/kubernetes/
-kubernetes]#  ./deploy.sh -i 10.0.0.10 -r "10.0.0.10/12" -s -t coredns.yaml.sed | kubectl apply  -f -
+kubernetes]#  ./deploy.sh -i 10.0.0.2 -r "10.0.0.2/12" -s -t coredns.yaml.sed | kubectl apply  -f -
 ```
-```
-coredns]# bash deploy.sh -i 10.96.0.10 -r "10.96.0.0/12" -s -t coredns.yaml.sed | kubectl apply -f -
-```
+
 ```
 [root@k8s-master coredns]# kubectl  get pod  -n kube-system
 NAME                          READY   STATUS    RESTARTS   AGE
